@@ -8,8 +8,8 @@ case class Ooo(importantSettings: Unit) {
   private[this] val finn = Hero("Finn")
   private[this] val jake = Hero("Jake")
 
-  def findHero: Hero = {
-    finn
+  def findHero: Option[Hero] = {
+    Some(finn)
   }
 
   def friendsRegistry(): Map[String, Hero] = {

@@ -10,12 +10,10 @@ object Main extends App {
 
   val ooo = Ooo(())
 
-  val hero = getHero(ooo)
-  println("Hero = " + hero.name)
+  val result = for {
+    hero <- getHero(ooo)
+    bestFriend <- getBestFriend(ooo, hero)
+  } yield goOnAdventure(ooo, hero, bestFriend)
 
-  val bestFriend = getBestFriend(ooo, hero)
-  println("Best friend = " + bestFriend.name)
-
-  val adventure = goOnAdventure(ooo, hero, bestFriend)
-  println(adventure)
+  println(result.getOrElse("There was no adventure :("))
 }

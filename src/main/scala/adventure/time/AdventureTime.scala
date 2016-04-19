@@ -5,9 +5,11 @@ package adventure.time
   */
 object AdventureTime {
 
-  def getHero(ooo: Ooo): Hero = ooo.findHero
+  def getHero(ooo: Ooo): Option[Hero] = ooo.findHero
 
-  def getBestFriend(ooo: Ooo, hero: Hero): Hero = ooo.friendsRegistry()(hero.name)
+  def getBestFriend(ooo: Ooo, hero: Hero): Option[Hero] = {
+    ooo.friendsRegistry().get(hero.name)
+  }
 
   def goOnAdventure(ooo: Ooo, hero1: Hero, hero2: Hero): String = {
     val result = ooo.evalAdventure(hero1, hero2)
