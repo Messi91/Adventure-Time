@@ -3,7 +3,7 @@ package adventure.time
 /**
   * Created by mesfin on 19/04/16.
   */
-object AdventureTime {
+class AdventureTime(ooo: Ooo) {
 
   def getHero: Hero = ooo.findHero
 
