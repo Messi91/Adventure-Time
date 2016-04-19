@@ -1,20 +1,21 @@
 package controller
 
-import adventure.time.{Ooo, AdventureTime}
+import adventure.time.Ooo
+import adventure.time.AdventureTime._
 
 /**
   * Created by mesfin on 19/04/16.
   */
 object Main extends App {
 
-  val at = new AdventureTime(Ooo(()))
+  val ooo = Ooo(())
 
-  val hero = at.getHero
+  val hero = getHero(ooo)
   println("Hero = " + hero.name)
 
-  val bestFriend = at.getBestFriend(hero)
+  val bestFriend = getBestFriend(ooo, hero)
   println("Best friend = " + bestFriend.name)
 
-  val adventure = at.goOnAdventure(hero, bestFriend)
+  val adventure = goOnAdventure(ooo, hero, bestFriend)
   println(adventure)
 }
